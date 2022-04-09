@@ -67,16 +67,16 @@ exports.update=(req, res)=>{
     }
 
     const id = req.params.id;
-    Userdb.findByIdAndUpdate(id, req.body, {useFindAndModify:false})
+    Menudb.findByIdAndUpdate(id, req.body, {useFindAndModify:false})
      .then(data =>{
          if (!data) {
-             res.status(404).send({message: `Cannot Update user with ${id}. Maybe user not found!`})
+             res.status(404).send({message: `Cannot Update menu with ${id}. Maybe menu not found!`})
          } else {
              res.send(data)
          }
      })
      .catch(err =>{
-         res.status(500).send({message: "Error Update user information"})
+         res.status(500).send({message: "Error Update menu information"})
      })
 }
 
@@ -84,20 +84,20 @@ exports.update=(req, res)=>{
 exports.delete = (req, res)=>{
     const id = req.params.id;
 
-    Userdb.findOneAndDelete(id)
+    Menudb.findOneAndDelete(id)
      .then(data =>{
          if (!data) {
              res.status(404).send({message: `Cannot Delete with id ${id}. Maybe id is wrong`})
          } else {
              res.send({
-                 message: "Userwas deleted successfully!"
+                 message: "menu was deleted successfully!"
              })
              
          }
      })
      .catch(err =>{
          res.status(500).send({
-             message: "Could not delete User with id="+id
+             message: "Could not delete menu with id="+id
          });
      });
 }

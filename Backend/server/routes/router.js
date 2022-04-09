@@ -52,5 +52,10 @@ route.get('/add-livreur', services_livreur.add_livreur);
 route.get('/update-livreur', services_livreur.update_livreur);
 
 //API livreur
-route.post('/api/menus', controller_menu.create);
+route.post('/api/livreurs', controller_livreur.create);
+route.get('/api/livreurs', controller_livreur.find);
+route.put('/api/livreurs/:id', controller_livreur.update);
+route.delete('/api/livreurs/:id', controller_livreur.delete);
+
+
 module.exports = route
